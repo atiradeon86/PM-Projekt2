@@ -1,0 +1,48 @@
+Name
+Front_Office
+Front_Office\Public
+Front_Office\Public\Shared
+Front_Office\Public\Documents
+Front_Office\Reception
+Front_Office\Reception\Documents
+Front_Office\Reception\E-learning
+Front_Office\Call_Center
+Front_Office\Call_Center\Documents
+Front_Office\Call_Center\E-learning
+Back_Office
+Back_Office\Sales_Marketing
+Back_Office\Sales_Marketing\E-learning
+Back_Office\Sales_Marketing\Marketing stuff
+Back_Office\Sales_Marketing\Very important marketing stuff
+Back_Office\Sales_Marketing\Contracts
+Back_Office\Finance and Accounting
+Back_Office\Finance and Accounting\Finance
+Back_Office\Finance and Accounting\Finance\Audits
+Back_Office\Finance and Accounting\Finance\Audits\2017
+Back_Office\Finance and Accounting\Finance\Audits\2018
+Back_Office\Finance and Accounting\Finance\Audits\2019
+Back_Office\Finance and Accounting\Finance\Audits\2020
+Back_Office\Finance and Accounting\Finance\Contracts
+Back_Office\Finance and Accounting\Finance\E-learning
+Back_Office\Finance and Accounting\Accounting
+Back_Office\Finance and Accounting\Accounting\The books
+Back_Office\Finance and Accounting\Accounting\Documents
+Back_Office\Finance and Accounting\Accounting\E-learning
+Back_Office\IT
+Back_Office\IT\Documents
+Back_Office\IT\Projects
+Back_Office\IT\Support
+Back_Office\IT\Support\Logs
+Back_Office\IT\Support\Logs\2017
+Back_Office\IT\Support\Logs\2018
+Back_Office\IT\Support\Logs\2019
+Back_Office\Management
+Back_Office\Management\Administration
+Back_Office\Management\Documents
+Back_Office\Management\Contracts
+Back_Office\PR
+Back_Office\PR\Customer service
+Back_Office\PR\Customer service\Logs
+Back_Office\PR\Customer service\Clients
+Back_Office\PR\Customer service\Contracts
+Back_Office\PR\Documents
