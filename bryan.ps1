@@ -60,15 +60,39 @@ function CreatFolders {
     }
     
 Function Auth {
-    param (
-        [string[]]$p
-    )
-    [String]$pwd = Read-Host "Please enter your password"
 
-    if (-not( $pwd -eq $p )) {
+    #1. Step Create Credential Object
+    <#
+    [string]$userName = 'bryan'
+    [string]$userPassword = '1234'
+    
+    [securestring]$secStringPassword = ConvertTo-SecureString $userPassword -AsPlainText -Force
+    [pscredential]$credObject = New-Object System.Management.Automation.PSCredential ($userName, $secStringPassword)
+    $credObject | Export-CliXml  -Path bryan-cred.xml
+    #>
+
+    #$Import existing Credential file
+    $credential = Import-CliXml -Path .\bryan-cred.xml
+    $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($credential.password)
+    $UnsecurePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+
+    #Create temporary Credential file
+    [string]$userName = 'bryan'
+    $pwd = Read-Host "Please enter your password" -AsSecureString
+    [pscredential]$credObject = New-Object System.Management.Automation.PSCredential ($userName, $pwd)
+    $credObject | Export-CliXml  -Path temp-cred.xml
+
+    $t_credential = Import-CliXml -Path .\temp-cred.xml
+    $bstr_temp = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($t_credential.password)
+    $T_UnsecurePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr_temp)
+
+    #Compare unencrypted strings ... :)
+    if (-not( $UnsecurePassword -eq $T_UnsecurePassword )) {
+       del .\temp-cred.xml
+       echo "Bad Password! Bye ..."
        exit
     }
-    
+    del .\temp-cred.xml
 }
 
 function Transcript { 
@@ -96,7 +120,7 @@ function Data-show{
     echo "**********************"
     
 }
-Auth -p $password
+Auth
 
 Data-show
 
