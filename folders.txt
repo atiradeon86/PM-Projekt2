@@ -1,4 +1,3 @@
-Name
 Front_Office
 Front_Office\Public
 Front_Office\Public\Shared
