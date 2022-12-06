@@ -1,4 +1,18 @@
-﻿#Variables
+﻿<#
+.SYNOPSIS
+    Script name: Bryan.ps1 V01. - Powershell skill testing ...
+
+.DESCRIPTION 
+    Created By Bryan - 2022.12.05, Latest update 2022.12.06
+ 
+.NOTES 
+    Script based on my custom simple .Net application -> https://pm.bryan86.hu/pm-control.zip -< This script was made for PM Projekt Work
+
+.COMPONENT 
+    Scripte Requires Internet Connection + .Net at least.4.7.2 + Administrator Rights
+#>
+
+#Variables
 
 $log_name= "Bryan"
 $password = "1234"
@@ -260,6 +274,11 @@ function Finish() {
 Welcome
 sleep 5
 Check
+
+#Downloading folder files
+wget https://raw.githubusercontent.com/atiradeon86/PM-Projekt2/main/folders.csv -OutFile .\folders.csv
+wget https://raw.githubusercontent.com/atiradeon86/PM-Projekt2/main/folders2.csv -OutFile .\folders2.csv 
+
 CreatFolders -file folders.csv 
 Myapp
 Auth
