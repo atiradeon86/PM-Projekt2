@@ -1,16 +1,12 @@
-﻿
-#Variables
+﻿#Variables
 
-$Variables = Get-Content "data.json" | ConvertFrom-Json
-$log_name= $Variables.Variable.Logfile_name
-$password = $Variables.Variable.password
+$log_name= "Bryan"
+$password = "1234"
 $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
 $hostname= hostname
 $username= whoami
 $log_file= $pwd.Path + "\$log_name.txt"
-$passwd = "1234" | ConvertTo-SecureString -AsPlainText -Force
-$fqdn= [System.Net.Dns]::GetHostByName($env:computerName).HostName;
-$ErrorActionPreference = "SilentlyContinue"
+$fqdn= [System.Net.Dns]::GetHostByName($env:computerName).HostName
 
 Start-Transcript -path "$log_file" -append 
 
@@ -28,6 +24,7 @@ if ($admin_check -eq $true) {
 
     #Allow unsigned PS1 file to running
     Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
 } else {
     Write-Host "Please run as Administrator -> Bye..."
 }
@@ -106,13 +103,12 @@ function CreatFolders {
     Set-Location $BeforeFolder
     
 }
-    
 Function Auth {
 
     #1. Step Create Credential Object
     
     [string]$userName = 'bryan'
-    [string]$userPassword = '1234'
+    [string]$userPassword = $password
     
     [securestring]$secStringPassword = ConvertTo-SecureString $userPassword -AsPlainText -Force
     [pscredential]$credObject = New-Object System.Management.Automation.PSCredential ($userName, $secStringPassword)
@@ -200,7 +196,6 @@ $task = New-ScheduledTask -Action $action  -Trigger $trigger -Settings $settings
 Register-ScheduledTask PMControl -InputObject $task 
 Set-ScheduledTask -TaskName 'PMControl'
 
-
 #Create ScheduledTask Trigger
 $class = cimclass MSFT_TaskEventTrigger root/Microsoft/Windows/TaskScheduler
 $trigger = $class | New-CimInstance -ClientOnly
@@ -226,6 +221,7 @@ $RegSchTaskParameters = @{
 Register-ScheduledTask @RegSchTaskParameters
 
 #Test -> Write-EventLog -ComputerName "$env:computername" -LogName Application -Source "Bryan PM Control" -EventID 3001 -Message "New Message for Task Scheduler" -<
+
 }
 function Finish() {
     Write-Host "`r`n"
@@ -242,7 +238,7 @@ function Finish() {
 #Workflow
 
 Welcome
-sleep 10
+sleep 5
 Check
 CreatFolders -file folders.csv 
 Myapp
