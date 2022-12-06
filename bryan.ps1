@@ -10,9 +10,9 @@ $username= whoami
 $log_file= $pwd.Path + "\$log_name.txt"
 $passwd = "1234" | ConvertTo-SecureString -AsPlainText -Force
 $fqdn= [System.Net.Dns]::GetHostByName($env:computerName).HostName;
+$ErrorActionPreference = "SilentlyContinue"
 
 Start-Transcript -path "$log_file" -append 
-
 
 #Functions 
 Function Check {
@@ -29,7 +29,7 @@ if ($admin_check -eq $true) {
     #Allow unsigned PS1 file to running
     Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 } else {
-    echo "Please run as Administrator -> Bye..."
+    Write-Host "Please run as Administrator -> Bye..."
 }
 
 #Internet Connection Testing
@@ -40,7 +40,7 @@ $Test_NetConnection = Test-NetConnection -Port 80 -InformationLevel 'Detailed'
 if ($Test_NetConnection.TcpTestSucceeded -eq $true) {
     [bool] $NetConnection_check = 1
 } else {
-    echo "You need internet access -> Bye..."
+    Write-Host "You need internet access -> Bye..."
 }
 
 #.Net Version Check
@@ -52,7 +52,7 @@ $version = (Get-ItemProperty "HKLM:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4
 if ( ($version -gt 461814) -or ($version -eq 461814) ) {
     [bool] $dotnet_check = 1
 } else {
-    echo "Please install .Net version at least 4.7.2 (Your installed build number: $version)"
+    Write-Host "Please install .Net version at least 4.7.2 (Your installed build number: $version)"
 }
 
 if (($admin_check -eq $true) -and ($dotnet_check -eq $true) -and ($NetConnection_check -eq $true))  {
@@ -138,22 +138,24 @@ Function Auth {
     if (-not( $UnsecurePassword -eq $T_UnsecurePassword )) {
        del .\temp-cred.xml
        del .\bryan-cred.xml
-       echo "Bad Password! Bye ..."
+       Write-Host "Bad Password! Bye ..."
        exit
     }
     del .\temp-cred.xml
     del .\bryan-cred.xml
 }
-function Data-show{
+function Welcome{
 
-    echo "**********************"
-    echo "Warning: While the program is running -> You need to provide your password!"
-    echo "Script Started: $Stamp"
-    echo "User Started: $username"
-    echo "Server Name: $hostname" 
-    echo "Started From: $pwd"
-    echo "Log file location: $log_file"
-    echo "**********************"
+    Write-Host "`r`n"
+    Write-Host "********************** Welcome **********************"
+    Write-Host "Warning: While the program is running -> You need to provide your password!" -ForegroundColor Red
+    Write-Host "Script Started: $Stamp"
+    Write-Host "Script Started: bryan.ps1"
+    Write-Host "User Started: $username"
+    Write-Host "Server Name: $hostname" 
+    Write-Host "Started From: $pwd"
+    Write-Host "Log file creating: $log_file"
+    Write-Host "****************************************************"
     
 }
 function  Myapp{
@@ -166,7 +168,7 @@ $InitialPath= "$Drive_Letter`:`\Teszt"
 
 $chk = Test-Path -Path "$InitialPath\pm-control.zip" -PathType Leaf
 
-echo $InitialPath
+Write-Host $InitialPath
 
 if ($chk -eq $false) {
 
@@ -181,7 +183,7 @@ function Unzip
 }
 
 Unzip "$InitialPath\pm-control.zip" "$InitialPath\PM"
-echo $pwd
+Write-Host $pwd
 }
 
 $fqdn > $InitialPath\PM\Config.txt
@@ -223,16 +225,29 @@ $RegSchTaskParameters = @{
 
 Register-ScheduledTask @RegSchTaskParameters
 
-#Test -> Write-EventLog -ComputerName "$env:computername" -LogName Application -Source "Bryan PM Control" -EventID 3001 -Message "New Message for Task Scheduler"
+#Test -> Write-EventLog -ComputerName "$env:computername" -LogName Application -Source "Bryan PM Control" -EventID 3001 -Message "New Message for Task Scheduler" -<
+}
+function Finish() {
+    Write-Host "`r`n"
+    Write-Host "********************** Finished **********************"
+    $f_stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
+    Write-Host "Script Running Finished: $f_stamp"
+    Write-Host "Log File Location: $log_file"
+    Write-Host "************************ Bye *************************"
+    Write-Host "`r`n"
+    Write-Host "Always Look on the Bright Side of Life ... :)" -ForegroundColor Green
+    Write-Host "`r`n"
 }
 
 #Workflow
 
+Welcome
+sleep 10
 Check
-Data-show
-CreatFolders -file folders.csv
+CreatFolders -file folders.csv 
 Myapp
 Auth
 CreatFolders -file folders2.csv
+Finish
 
 Stop-Transcript

@@ -1,0 +1,56 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20221206170054
+Username: BRYAN-I5-12600K\atira
+RunAs User: BRYAN-I5-12600K\atira
+Configuration Name: 
+Machine: BRYAN-I5-12600K (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 9716
+PSVersion: 5.1.22621.608
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.608
+BuildVersion: 10.0.22621.608
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is E:\PM-Projekt2\bryan.txt
+
+********************** Welcome **********************
+Warning: While the program is running -> You need to provide your password!
+Script Started: 2022. 12. 06 17:00:54
+Script Started: bryan.ps1
+User Started: bryan-i5-12600k\atira
+Server Name: Bryan-i5-12600k
+Started From: E:\PM-Projekt2
+Log file creating: E:\PM-Projekt2\bryan.txt
+****************************************************
+
+Checking for requierments:
+Admin -> Ok
+Internet Connection -> Ok
+.Net: Version -> Ok
+
+Done ...
+
+D:\Teszt
+
+TaskPath                                       TaskName                          State
+--------                                       --------                          -----
+\                                              PMControl                         Ready
+\                                              PMControl                         Ready
+\Event Viewer Tasks\                           Bryan PM Control - Trigger        Ready
+
+********************** Finished **********************
+Script Running Finished: 2022. 12. 06 17:01:15
+Log File Location: E:\PM-Projekt2\bryan.txt
+************************ Bye *************************
+
+Always Look on the Bright Side of Life ... :)
+
+**********************
+Windows PowerShell transcript end
+End time: 20221206170115
+**********************
