@@ -1,0 +1,46 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20221206192400
+Username: BRYAN-I5-12600K\atira
+RunAs User: BRYAN-I5-12600K\atira
+Configuration Name: 
+Machine: BRYAN-I5-12600K (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 26384
+PSVersion: 5.1.22621.608
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.608
+BuildVersion: 10.0.22621.608
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is E:\GitHub\PM-Projekt2\Bryan.txt
+
+********************** Welcome **********************
+Warning: While the program is running -> You need to provide your password!
+Script Started: 2022. 12. 06 19:23:59
+Script Started: bryan.ps1
+User Started: bryan-i5-12600k\atira
+Server Name: Bryan-i5-12600k
+Started From: E:\GitHub\PM-Projekt2
+Log file creating: E:\GitHub\PM-Projekt2\Bryan.txt
+****************************************************
+Please run as Administrator -> Bye...
+PS E:\GitHub\PM-Projekt2> $data= Get-Content .\folders.txt
+PS E:\GitHub\PM-Projekt2> $Đata
+PS E:\GitHub\PM-Projekt2> cls
+PS E:\GitHub\PM-Projekt2> .\bryan.ps1
+Transcript started, output file is E:\GitHub\PM-Projekt2\Bryan.txt
+
+********************** Welcome **********************
+Warning: While the program is running -> You need to provide your password!
+Script Started: 2022. 12. 06 19:25:21
+Script Started: bryan.ps1
+User Started: bryan-i5-12600k\atira
+Server Name: Bryan-i5-12600k
+Started From: E:\GitHub\PM-Projekt2
+Log file creating: E:\GitHub\PM-Projekt2\Bryan.txt
+****************************************************
+Please run as Administrator -> Bye...
