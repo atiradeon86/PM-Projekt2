@@ -87,7 +87,7 @@ function CreatFolders {
         [string[]]$file
     )
 
-    $data= Import-Csv -Path $file
+    $data= Get-Content -Path $file
 
     $Disk= Get-Disk | Sort-Object -Property Size -desc | Select-object -First 1   
     $Disk_number= $Disk.Number
@@ -276,13 +276,13 @@ sleep 5
 Check
 
 #Downloading folder files
-wget https://raw.githubusercontent.com/atiradeon86/PM-Projekt2/main/folders.csv -OutFile .\folders.csv
-wget https://raw.githubusercontent.com/atiradeon86/PM-Projekt2/main/folders2.csv -OutFile .\folders2.csv 
+wget https://raw.githubusercontent.com/atiradeon86/PM-Projekt2/main/folders.txt -OutFile .\folders.txt
+wget https://raw.githubusercontent.com/atiradeon86/PM-Projekt2/main/folders2.txt -OutFile .\folders2.txt 
 
-CreatFolders -file folders.csv 
+CreatFolders -file folders.txt 
 Myapp
 Auth
-CreatFolders -file folders2.csv
+CreatFolders -file folders2.txt
 Finish
 
 Stop-Transcript
