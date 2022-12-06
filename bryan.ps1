@@ -9,7 +9,7 @@
     Script based on my custom simple .Net application -> https://pm.bryan86.hu/pm-control.zip -< This script was made for PM Projekt Work
 
 .COMPONENT 
-    Scripte Requires Internet Connection + .Net at least.4.7.2 + Administrator Rights
+    Script Requires Internet Connection + .Net at least.4.7.2 + Administrator Rights
 #>
 
 #Variables
