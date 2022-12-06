@@ -3964,3 +3964,11 @@ Always Look on the Bright Side of Life ... :)
 Transcript stopped, output file is C:\gh\PM-Projekt2\Bryan.txt
 
 
+PS C:\gh\PM-Projekt2> git add .
+
+PS C:\gh\PM-Projekt2> git commit -m "V01"
+
+PS C:\gh\PM-Projekt2> git push
+
+PS C:\gh\PM-Projekt2> git commit -m "V01"
+

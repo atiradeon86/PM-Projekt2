@@ -102,7 +102,7 @@ function CreatFolders {
         #Create SMB Share
         New-SmbShare -Name $arr[$i] -Path "$CompFolder" -ea 0
 
-        
+        #Grant SMB Access
         Grant-SmbShareAccess -Name $arr[$i] -AccountName $username -AccessRight Full -force
         
         #Set NTFS ACL
