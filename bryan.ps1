@@ -96,8 +96,28 @@ function CreatFolders {
     $arr =@($folders.Name)
 
     for ($i=0; $i -lt $arr.Length; $i++) {
+
         $CompFolder = $InitialPath + "\" + $arr[$i]
+
+        #Create SMB Share
         New-SmbShare -Name $arr[$i] -Path "$CompFolder" -ea 0
+
+        
+        Grant-SmbShareAccess -Name $arr[$i] -AccountName $username -AccessRight Full -force
+        
+        #Set NTFS ACL
+        $NewAcl = Get-Acl -Path "$CompFolder"
+        # Set properties
+        $identity = $username
+        $fileSystemRights = "FullControl"
+        $type = "Allow"
+        # Create new rule
+        $fileSystemAccessRuleArgumentList = $identity, $fileSystemRights, $type
+        $fileSystemAccessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fileSystemAccessRuleArgumentList
+        # Apply new rule
+        $NewAcl.SetAccessRule($fileSystemAccessRule)
+        Set-Acl -Path $CompFolder -AclObject $NewAcl
+
     }
     
     Set-Location $BeforeFolder
