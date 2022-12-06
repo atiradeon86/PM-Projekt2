@@ -281,7 +281,7 @@ Welcome
 sleep 5
 Check
 DonwloadCsv
-CreatFolders -file folder.csv
+CreatFolders -file folders.csv
 Myapp
 Auth
 CreatFolders -file folders2.csv
