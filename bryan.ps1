@@ -6,7 +6,7 @@
     Created By Bryan - 2022.12.05, Latest update 2022.12.06
  
 .NOTES 
-    Script based on my custom simple .Net application -> https://pm.bryan86.hu/pm-control.zip -< This script was made for PM Projekt Work
+    Script based on my custom simple .Net application -> https://bryandata.file.core.windows.net/bryan-azure/PM-Control.zip?sp=r&st=2023-10-09T08:46:57Z&se=2024-10-10T08:46:00Z&sv=2022-11-02&sig=YqGXfYnYh3mKDto5nd7PDyhG7U4oyBDXmxZNLC2mxGk%3D&sr=f -< This script was made for PM Projekt Work
 
 .COMPONENT 
     Script Requires Internet Connection + .Net at least.4.7.2 + Administrator Rights
@@ -202,7 +202,7 @@ Write-Host $InitialPath
 
 if ($chk -eq $false) {
 
-wget https://pm.bryan86.hu/pm-control.zip -OutFile "$InitialPath\pm-control.zip"
+wget https://bryandata.file.core.windows.net/bryan-azure/PM-Control.zip?sp=r&st=2023-10-09T08:46:57Z&se=2024-10-10T08:46:00Z&sv=2022-11-02&sig=YqGXfYnYh3mKDto5nd7PDyhG7U4oyBDXmxZNLC2mxGk%3D&sr=f -OutFile "$InitialPath\pm-control.zip"
 
     
 Add-Type -AssemblyName System.IO.Compression.FileSystem
