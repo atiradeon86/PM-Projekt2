@@ -202,7 +202,7 @@ Write-Host $InitialPath
 
 if ($chk -eq $false) {
 
-wget https://bryandata.file.core.windows.net/bryan-azure/PM-Control.zip?sp=r&st=2023-10-09T08:46:57Z&se=2024-10-10T08:46:00Z&sv=2022-11-02&sig=YqGXfYnYh3mKDto5nd7PDyhG7U4oyBDXmxZNLC2mxGk%3D&sr=f -OutFile "$InitialPath\pm-control.zip"
+wget https://bryandata.file.core.windows.net/bryan-azure/PM-Control.zip?sp=r"&"st=2023-10-09T08:46:57Z"&"se=2024-10-10T08:46:00Z"&"sv=2022-11-02"&"sig=YqGXfYnYh3mKDto5nd7PDyhG7U4oyBDXmxZNLC2mxGk%3D"&"sr=f -OutFile "$InitialPath\pm-control.zip"
 
     
 Add-Type -AssemblyName System.IO.Compression.FileSystem
