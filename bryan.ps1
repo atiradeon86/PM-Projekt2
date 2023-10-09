@@ -237,7 +237,7 @@ $trigger.Enabled = $true
 $trigger.Subscription = ' <QueryList><Query Id="0" Path="Application"><Select Path="Application">*[System[Provider[@Name=''Bryan PM Control''] and EventID=3001]]</Select></Query></QueryList>'
 
 $ActionParameters = @{
-    Execute  = "$InitialPath\PM\pmc.exe"
+    Execute  = "$InitialPath\PM\PM-Control.exe"
 }
 
 $Action = New-ScheduledTaskAction @ActionParameters
