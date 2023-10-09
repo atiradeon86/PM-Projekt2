@@ -223,7 +223,7 @@ $fqdn > $InitialPath\PM\Config.txt
 
 #Create ScheduledTask
 
-$action = New-ScheduledTaskAction -Execute "$InitialPath\PM\pmc.exe"
+$action = New-ScheduledTaskAction -Execute "$InitialPath\PM\PM-Control.exe"
 $trigger = New-ScheduledTaskTrigger -AtStartup
 $settings = New-ScheduledTaskSettingsSet
 $task = New-ScheduledTask -Action $action  -Trigger $trigger -Settings $settings
