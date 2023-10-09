@@ -2,8 +2,8 @@
 
 #### Clone repository & run bryan.ps1
 
-
-#### wget https://raw.githubusercontent.com/atiradeon86/PM-Projekt2/main/bryan.ps1  and run
-
 ## Base Credentials (for testing)
 Password: 1234
+
+## For task testing run:
+Write-EventLog -ComputerName "$env:computername" -LogName Application -Source "Bryan PM Control" -EventID 3001 -Message "New Message for Task Scheduler"
